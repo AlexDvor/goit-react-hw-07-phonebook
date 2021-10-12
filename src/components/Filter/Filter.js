@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
-import * as actions from '../../redux/Contact/contact-actions';
+import * as actions from '../../redux/Contact/contacts-actions';
 import { useSelector, useDispatch } from 'react-redux';
 
 export default function Filter() {

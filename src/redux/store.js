@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import contactReducer from './Contact/contact-reducer';
+import contactReducer from './Contact/contacts-reducer';
 // import storage from 'redux-persist/lib/storage';
 // import {
 //   persistStore,

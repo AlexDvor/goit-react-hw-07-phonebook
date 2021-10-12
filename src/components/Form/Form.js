@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import ButtonItem from '../Button';
 import PropTypes from 'prop-types';
-import * as actions from '../../redux/Contact/contact-actions';
+import * as actions from '../../redux/Contact/contacts-actions';
 import { useSelector, useDispatch } from 'react-redux';
 // style
 import { FormItem, Input } from './Form.styled.jsx';

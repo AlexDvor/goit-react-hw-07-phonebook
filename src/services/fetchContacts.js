@@ -1,12 +1,12 @@
 import axios from 'axios';
 const URL = 'http://localhost:3000/contacts';
 
-export const fetchContacts = () => {
-  return axios.get(URL).then(res => res.data);
-};
+export async function fetchContacts() {
+  return await axios.get(URL).then(res => res.data);
+}
 
-export const postContacts = (name, number) => {
-  return axios({
+export async function postContacts(name, number) {
+  return await axios({
     method: 'post',
     url: URL,
     data: {
@@ -14,4 +14,4 @@ export const postContacts = (name, number) => {
       number,
     },
   });
-};
+}
