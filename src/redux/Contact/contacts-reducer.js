@@ -3,8 +3,8 @@ import { createReducer } from '@reduxjs/toolkit';
 import * as actions from './contacts-actions';
 
 const itemReducer = createReducer([], {
-  [actions.fetchContactsSuccess]: (state, action) => [...state, ...action.payload],
-  // [type.addContacts]: (state, action) => [...state, action.payload],
+  [actions.getContactsSuccess]: (_, action) => [...action.payload],
+  [actions.updatedListUsers]: (_, action) => [...action.payload],
   // [type.deleteContacts]: (state, action) => state.filter(item => item.id !== action.payload),
 });
 
@@ -17,5 +17,4 @@ const contactReducer = combineReducers({
   filter: filterReducer,
 });
 
-// export default contactReducer;
 export default contactReducer;

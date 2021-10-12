@@ -7,7 +7,7 @@ import * as contactsOperations from '../../redux/Contact/contacts-operations';
 
 export default function ContactList() {
   const dataUsers = useSelector(state => state.contacts.items);
-  const name = useSelector(state => state.contacts.filter);
+  // const name = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
 
   console.log('dataUsers', dataUsers);

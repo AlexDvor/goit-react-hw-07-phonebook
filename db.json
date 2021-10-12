@@ -1,19 +1,9 @@
 {
   "contacts": [
     {
-      "name": "Alex",
-      "number": 4465465456,
-      "id": 10
-    },
-    {
-      "name": "Dima",
-      "number": 446546446,
-      "id": 11
-    },
-    {
-      "name": "Ivanna",
-      "number": 446546446,
-      "id": 12
+      "name": "Alex Dvor",
+      "number": "456465465465",
+      "id": 1
     }
   ]
 }

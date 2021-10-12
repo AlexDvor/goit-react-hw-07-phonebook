@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import ButtonItem from '../Button';
 import PropTypes from 'prop-types';
-import * as actions from '../../redux/Contact/contacts-actions';
+// import * as actions from '../../redux/Contact/contacts-actions';
+import * as operations from '../../redux/Contact/contacts-operations';
 import { useSelector, useDispatch } from 'react-redux';
 // style
 import { FormItem, Input } from './Form.styled.jsx';
@@ -50,7 +51,8 @@ export default function Form() {
     if (userData.some(item => item.name === newData.name)) {
       return alert(`${newData.name} is already in contacts`);
     }
-    dispatch(actions.addContacts(newData));
+
+    dispatch(operations.postContacts(newData));
   };
 
   const resetForm = () => {

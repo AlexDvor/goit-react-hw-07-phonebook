@@ -5,7 +5,7 @@ export async function fetchContacts() {
   return await axios.get(URL).then(res => res.data);
 }
 
-export async function postContacts(name, number) {
+export async function postContacts({ name, number }) {
   return await axios({
     method: 'post',
     url: URL,
