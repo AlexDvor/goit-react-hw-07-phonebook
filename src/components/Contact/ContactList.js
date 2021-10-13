@@ -27,17 +27,6 @@ export default function ContactList() {
   );
 }
 
-// const mapStateToProps = state => ({
-//   dataUsers: state.contacts.items,
-//   name: state.contacts.filter,
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   deleteContact: id => dispatch(actions.deleteContacts(id)),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
-
 ContactList.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
