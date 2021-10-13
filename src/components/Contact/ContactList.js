@@ -1,28 +1,18 @@
-import { Button } from './ContactList.styled';
-import PropTypes from 'prop-types';
-import * as actions from '../../redux/Contact/contacts-actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Button } from './ContactList.styled';
+import * as actions from '../../redux/Contact/contacts-actions';
 import * as contactsOperations from '../../redux/Contact/contacts-operations';
+import { visibleContactsSelector } from '../../redux/Contact/contacts-selectors';
 
 export default function ContactList() {
-  const dataUsers = useSelector(state => state.contacts.items);
-  // const name = useSelector(state => state.contacts.filter);
+  const dataUsers = useSelector(visibleContactsSelector);
   const dispatch = useDispatch();
-
-  console.log('dataUsers', dataUsers);
 
   useEffect(() => {
     dispatch(contactsOperations.getContacts());
   }, [dispatch]);
-
-  // const renderUserContacts = dataUsers => {
-  //   if (dataUsers) {
-  //     return dataUsers.filter(item => item.name.toLowerCase().includes(name.toLowerCase()));
-  //   }
-  // };
-
-  // const visibleContacts = renderUserContacts(dataUsers);
 
   return (
     <>
