@@ -15,3 +15,14 @@ export async function postContacts({ name, number }) {
     },
   });
 }
+
+export async function deleteContacts({ name, number }) {
+  return await axios({
+    method: 'post',
+    url: URL,
+    data: {
+      name,
+      number,
+    },
+  });
+}
