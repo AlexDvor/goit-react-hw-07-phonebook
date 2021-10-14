@@ -1,6 +1,11 @@
 import * as actions from './contacts-actions';
 import * as services from '../../services/fetchContacts';
 
+async function updatedUserList(dispatch) {
+  const contacts = await services.fetchContacts();
+  return dispatch(actions.updatedListUsers(contacts));
+}
+
 export const getContacts = () => async dispatch => {
   dispatch(actions.getContactsRequest());
   try {
@@ -16,8 +21,7 @@ export const postContacts = newUserData => async dispatch => {
   try {
     await services.postContacts(newUserData);
     dispatch(actions.postContactsSuccess());
-    const contacts = await services.fetchContacts();
-    dispatch(actions.updatedListUsers(contacts));
+    updatedUserList(dispatch);
   } catch (error) {
     dispatch(actions.postContactsError());
   }
@@ -28,8 +32,7 @@ export const deleteContacts = id => async dispatch => {
   try {
     await services.deleteContacts(id);
     dispatch(actions.deleteContactsSuccess());
-    const contacts = await services.fetchContacts();
-    dispatch(actions.updatedListUsers(contacts));
+    updatedUserList(dispatch);
   } catch (error) {
     dispatch(actions.deleteContactsError());
   }

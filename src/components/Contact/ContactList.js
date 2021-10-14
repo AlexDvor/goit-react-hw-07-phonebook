@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from './ContactList.styled';
-import * as actions from '../../redux/Contact/contacts-actions';
 import * as contactsOperations from '../../redux/Contact/contacts-operations';
 import { visibleContactsSelector } from '../../redux/Contact/contacts-selectors';
 

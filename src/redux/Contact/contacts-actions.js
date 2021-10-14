@@ -12,8 +12,8 @@ export const postContactsRequest = createAction('contacts/postContactsRequest');
 export const postContactsSuccess = createAction('contacts/postContactsSuccess');
 export const postContactsError = createAction('contacts/postContactsError');
 
-export const deleteContactsRequest = createAction('delete/postContactsRequest');
-export const deleteContactsSuccess = createAction('delete/postContactsSuccess');
-export const deleteContactsError = createAction('delete/postContactsError');
+export const deleteContactsRequest = createAction('contacts/deleteContactsRequest');
+export const deleteContactsSuccess = createAction('contacts/deleteContactsSuccess');
+export const deleteContactsError = createAction('contacts/deleteContactsError');
 
 export const updatedListUsers = createAction('contacts/updatedListUsers');
