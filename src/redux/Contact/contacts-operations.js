@@ -22,3 +22,15 @@ export const postContacts = newUserData => async dispatch => {
     dispatch(actions.postContactsError());
   }
 };
+
+export const deleteContacts = id => async dispatch => {
+  dispatch(actions.deleteContactsRequest());
+  try {
+    await services.deleteContacts(id);
+    dispatch(actions.deleteContactsSuccess());
+    const contacts = await services.fetchContacts();
+    dispatch(actions.updatedListUsers(contacts));
+  } catch (error) {
+    dispatch(actions.deleteContactsError());
+  }
+};

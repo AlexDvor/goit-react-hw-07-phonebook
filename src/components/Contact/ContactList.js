@@ -20,7 +20,7 @@ export default function ContactList() {
         dataUsers.map(({ name, id, number }) => (
           <li key={id}>
             {name} : {number}
-            <Button onClick={() => dispatch(actions.deleteContacts(id))}>Delete</Button>
+            <Button onClick={() => dispatch(contactsOperations.deleteContacts(id))}>Delete</Button>
           </li>
         ))}
     </>

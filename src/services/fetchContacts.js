@@ -1,14 +1,14 @@
 import axios from 'axios';
-const URL = 'http://localhost:3000/contacts';
+const BASE_URL = 'http://localhost:3000';
 
 export async function fetchContacts() {
-  return await axios.get(URL).then(res => res.data);
+  return await axios.get(`${BASE_URL}/contacts`).then(res => res.data);
 }
 
 export async function postContacts({ name, number }) {
   return await axios({
     method: 'post',
-    url: URL,
+    url: `${BASE_URL}/contacts`,
     data: {
       name,
       number,
@@ -16,13 +16,9 @@ export async function postContacts({ name, number }) {
   });
 }
 
-export async function deleteContacts({ name, number }) {
+export async function deleteContacts(id) {
   return await axios({
-    method: 'post',
-    url: URL,
-    data: {
-      name,
-      number,
-    },
+    method: 'delete',
+    url: `${BASE_URL}/contacts/${id}`,
   });
 }
