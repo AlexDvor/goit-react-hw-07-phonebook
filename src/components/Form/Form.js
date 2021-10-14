@@ -1,26 +1,20 @@
 // import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
-import ButtonItem from '../Button';
-import PropTypes from 'prop-types';
-// import * as actions from '../../redux/Contact/contacts-actions';
-import * as operations from '../../redux/Contact/contacts-operations';
 import { useSelector, useDispatch } from 'react-redux';
-// style
+import PropTypes from 'prop-types';
 import { FormItem, Input } from './Form.styled.jsx';
+import ButtonItem from '../Button';
+import * as operations from '../../redux/Contact/contacts-operations';
+import * as selector from '../../redux/Contact/contacts-selectors';
 
 export default function Form() {
   const [name, setName] = useState('');
-  const [id, setId] = useState('');
   const [number, setNumber] = useState('');
-  const state = useSelector(state => state.contacts.items);
+  const state = useSelector(selector.getContactsSelector);
   const dispatch = useDispatch();
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
-    const randomId = uuidv4().slice(0, 5);
-
-    setId(randomId);
 
     switch (name) {
       case 'name':
@@ -40,11 +34,11 @@ export default function Form() {
     e.preventDefault();
     const contactData = {
       name,
-      id: id,
-      number: number,
+      number,
     };
     checkUserName(state, contactData);
-    resetForm();
+    setName('');
+    setNumber('');
   };
 
   const checkUserName = (userData, newData) => {
@@ -53,12 +47,6 @@ export default function Form() {
     }
 
     dispatch(operations.postContacts(newData));
-  };
-
-  const resetForm = () => {
-    setName('');
-    setId('');
-    setNumber('');
   };
 
   return (
@@ -98,13 +86,3 @@ Form.propTypes = {
   handleSubmit: PropTypes.func,
   resetForm: PropTypes.func,
 };
-
-// const mapStateToProps = state => ({
-//   state: state.contacts.items,
-// });
-
-// const mapDispatchToProps = dispatch => ({
-//   addContacts: obj => dispatch(actions.addContacts(obj)),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Form);
