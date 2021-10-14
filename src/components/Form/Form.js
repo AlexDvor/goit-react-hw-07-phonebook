@@ -6,6 +6,7 @@ import { FormItem, Input } from './Form.styled.jsx';
 import ButtonItem from '../Button';
 import * as operations from '../../redux/Contact/contacts-operations';
 import * as selector from '../../redux/Contact/contacts-selectors';
+import { toast } from 'react-toastify';
 
 export default function Form() {
   const [name, setName] = useState('');
@@ -43,7 +44,7 @@ export default function Form() {
 
   const checkUserName = (userData, newData) => {
     if (userData.some(item => item.name === newData.name)) {
-      return alert(`${newData.name} is already in contacts`);
+      return toast.info('This name is already in your list');
     }
 
     dispatch(operations.postContacts(newData));
